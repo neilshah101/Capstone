@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const path = require('path')
 const app = express()
 const PORT = process.env.PORT || 5000
 const connectDB = require('./config/db')
@@ -291,7 +292,7 @@ app.post('/nonmodalpayment', cors(), async (req, res) => {
 
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'))
+  app.use(express.static((path.join(__dirname, 'client/build'))))
 }
 
 
@@ -305,3 +306,8 @@ process.on('unhandledRejection', (err, promise) => {
   console.log(`Logged Error: ${err}`)
   server.close(() => process.exit(1))
 })
+
+
+app.get(‘*’, (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+ })

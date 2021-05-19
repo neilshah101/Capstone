@@ -6,7 +6,7 @@ export const loadProducts = () => {
         
 
         // api call to fetch all products 
-        fetch('http://localhost:5000/all-products')
+        fetch('/all-products')
             .then(response => response.json())
             .then (products => {
                 // console.log(products)
@@ -16,7 +16,7 @@ export const loadProducts = () => {
         })
 
         // api call to fetch all vegetables 
-        fetch('http://localhost:5000/all-products/vegetable')
+        fetch('/all-products/vegetable')
             .then(response => response.json())
             .then (vegetable => {
                 // console.log(vegetable)
@@ -26,7 +26,7 @@ export const loadProducts = () => {
         })
 
         // api call to fetch all FRUIT 
-        fetch('http://localhost:5000/all-products/fruit')
+        fetch('/all-products/fruit')
             .then(response => response.json())
             .then (fruit => {
                 // console.log(fruit)
@@ -36,7 +36,7 @@ export const loadProducts = () => {
         })
 
         // api call to fetch all flower 
-        fetch('http://localhost:5000/all-products/flower')
+        fetch('/all-products/flower')
             .then(response => response.json())
             .then (flower => {
                 // console.log(flower)
